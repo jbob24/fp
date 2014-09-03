@@ -83,3 +83,9 @@ C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\Finance
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\obj\Debug\FinanceProjector.Web.csprojResolveAssemblyReference.cache
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\obj\Debug\FinanceProjector.Web.dll
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\obj\Debug\FinanceProjector.Web.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\FinanceProjector.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\MongoDB.Bson.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\MongoDB.Driver.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\FinanceProjector.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\MongoDB.Bson.xml
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector.Web\bin\MongoDB.Driver.xml

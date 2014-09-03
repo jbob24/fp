@@ -1,6 +1,5 @@
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\FinanceProjector.dll
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\FinanceProjector.pdb
-C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.csprojResolveAssemblyReference.cache
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.dll
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.pdb
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Bson.dll

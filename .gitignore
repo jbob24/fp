@@ -52,3 +52,9 @@ FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.Tests
 FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.Tests.pdb
 FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/MongoDB.Bson.dll
 *.dll
+*.cache
+*.dll
+*.pdb
+FinanceProjector/FinanceProjector.Web/obj/Debug/FinanceProjector.Web.csproj.FileListAbsolute.txt
+FinanceProjector/FinanceProjector.Web/obj/Debug/FinanceProjector.Web.csproj.FileListAbsolute.txt
+FinanceProjector/FinanceProjector.Web.Tests/obj/Debug/FinanceProjector.Web.Tests.csproj.FileListAbsolute.txt
