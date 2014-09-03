@@ -94,6 +94,8 @@ namespace FinanceProjector
 
             foreach (var item in transactions)
             {
+                AssignBudgetCategory(item);
+
                 var existingTransaction = _user.Transactions.FirstOrDefault(t => t.TransactionID == item.TransactionID);
 
                 if (existingTransaction != null)
@@ -120,6 +122,46 @@ namespace FinanceProjector
             {
                 throw new ArgumentNullException("user");
             }
+        }
+
+        private void AssignBudgetCategory(Transaction transaction)
+        {
+            foreach (var budgetCategory in _user.BudgetCategories)
+            {
+                FindMatchingBudgetCategory(transaction, budgetCategory);
+            }
+        }
+
+        private void FindMatchingBudgetCategory(Transaction transaction, BudgetCategory budgetCategory)
+        {
+            if (!FindBudgetCategorName(transaction, budgetCategory))
+            {
+                foreach (var subCategory in budgetCategory.SubCategories)
+                {
+                    FindMatchingBudgetCategory(transaction, subCategory);
+                }
+            }
+        }
+
+        private static bool FindBudgetCategorName(Transaction transaction, BudgetCategory budgetCategory)
+        {
+            try
+            {
+                foreach (var transactionMatch in budgetCategory.TransactionMatches)
+                {
+                    if (transactionMatch.IsMatch(transaction))
+                    {
+                        transaction.BudgetCategoryName = budgetCategory.Name;
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var error = ex.Message;
+            }
+
+            return false;
         }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model FinanceProjector.Model.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Budget Category</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var transaction in Model.Transactions.OrderByDescending(t => t.Date))
+{ 
+    <tr>
+        <td>@transaction.Date.ToShortDateString()</td>
+        <td>@transaction.Name</td>
+        <td>@transaction.Amount.ToString("C")</td>
+        <td>@transaction.BudgetCategoryName</td>
+    </tr>
+}
+    </tbody>
+</table>

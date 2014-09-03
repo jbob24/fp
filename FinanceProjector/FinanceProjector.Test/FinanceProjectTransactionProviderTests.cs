@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using FinanceProjector.TransactionProviders.OFX;
 using FinanceProjector.Model;
 using System.Linq;
+using FinanceProjector.Enums;
 
 namespace FinanceProjector.Test
 {
@@ -20,6 +21,7 @@ namespace FinanceProjector.Test
         public void Setup()
         {
             _service = new TransactionService();
+            _user = CreateUser();
             AddUser();
         }
 
@@ -31,7 +33,6 @@ namespace FinanceProjector.Test
 
         private void AddUser()
         {
-            _user = CreateUser();
             _service.AddUser(_user);
         }
 
@@ -46,10 +47,10 @@ namespace FinanceProjector.Test
 
         private void RemoveUser()
         {
-            _service.DeleteUser(_user);
-            var user = _service.GetUserByUserId(_userId);
+            //_service.DeleteUser(_user);
+            //var user = _service.GetUserByUserId(_userId);
 
-            Assert.IsNull(user);
+            //Assert.IsNull(user);
         }
 
         [TestMethod]
@@ -76,7 +77,9 @@ namespace FinanceProjector.Test
         [TestMethod]
         public void OFXTransactionProvider_Load()
         {
-            var provider = new OFXTransactionProvider();
+            //var provider = new OFXTransactionProvider();
+
+            SetupBudgetCategories();
             
             var filePath = @"Checking1.qfx";
 
@@ -89,6 +92,38 @@ namespace FinanceProjector.Test
             ValidateTransaction(transactions[transactions.Count - 1], GetLastExpectedTransaction());
 
             Remove5Transactions();
+        }
+
+        [TestMethod]
+        public void SetupBudgetCategories()
+        {
+            if (_user.BudgetCategories == null || !_user.BudgetCategories.Any())
+            {
+                var groceries = new BudgetCategory { Name = "Groceries" };
+                groceries.TransactionMatches.Add(new TransactionMatch { Name = "Windmill Farms" });
+                groceries.TransactionMatches.Add(new TransactionMatch { Name = "VONS Store" });
+                groceries.TransactionMatches.Add(new TransactionMatch { Name = "Trader Joe s" });
+
+                var foodCategory = new BudgetCategory { Name = "Food" };
+                foodCategory.SubCategories.Add (groceries);
+                foodCategory.SubCategories.Add(new BudgetCategory { Name = "Eating Out" });
+
+                var lukie = new BudgetCategory { Name = "Lukie" };
+                lukie.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -500m });
+                var childCare = new BudgetCategory { Name = "Child Care" };
+                childCare.SubCategories.Add(lukie);
+
+                var rent = new BudgetCategory { Name = "Rent" };
+                rent.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -2100m });
+                var housing = new BudgetCategory { Name = "Housing" };
+                housing.SubCategories.Add(rent);
+
+                _user.BudgetCategories.Add(foodCategory);
+                _user.BudgetCategories.Add(childCare);
+                _user.BudgetCategories.Add(housing);
+
+                _service.SaveUser(_user);
+            }
         }
 
         private void Remove5Transactions()

@@ -34,3 +34,21 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.dll
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.pdb
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.Test.dll
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.dll
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.pdb
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.Test.dll
+FinanceProjector/FinanceProjector.Test/bin/Debug/FinanceProjector.Test.pdb
+FinanceProjector/FinanceProjector.Test/obj/Debug/FinanceProjector.Test.csprojResolveAssemblyReference.cache
+FinanceProjector/FinanceProjector.Test/obj/Debug/FinanceProjector.Test.dll
+FinanceProjector/FinanceProjector.v11.suo
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.dll
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.dll
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.pdb
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.Tests.dll
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/FinanceProjector.Web.Tests.pdb
+FinanceProjector/FinanceProjector.Web.Tests/bin/Debug/MongoDB.Bson.dll
+*.dll

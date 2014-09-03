@@ -16,10 +16,12 @@ namespace FinanceProjector.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<Transaction> Transactions { get; set; }
+        public List<BudgetCategory> BudgetCategories { get; set; }
 
         public User()
         {
             Transactions = new List<Transaction>();
+            BudgetCategories = new List<BudgetCategory>();
         }
     }
 }

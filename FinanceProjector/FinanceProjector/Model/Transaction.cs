@@ -25,6 +25,7 @@ namespace FinanceProjector.Model
         public string PayeeID { get; set; }
         public string Currency { get; set; }
         public bool IsEstimate { get; set; }
+        public string BudgetCategoryName { get; set; }
 
         public void UpdateData(Transaction source)
         {
@@ -38,6 +39,7 @@ namespace FinanceProjector.Model
             this.PayeeID = source.PayeeID;
             this.Currency = source.Currency;
             this.IsEstimate = source.IsEstimate;
+            this.BudgetCategoryName = source.BudgetCategoryName;
         }
 
         //public void Save()
