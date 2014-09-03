@@ -1,0 +1,15 @@
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\bin\Debug\OFXSharp.dll
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\bin\Debug\OFXSharp.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\bin\Debug\SgmlReaderDll.dll
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\obj\Debug\OFXSharp.Resources.resources
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\obj\Debug\OFXSharp.csproj.GenerateResource.Cache
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\obj\Debug\OFXSharp.dll
+C:\Users\d_henssj\Documents\Visual Studio 2013\OFX\OFXSharp-master\source\OFXSharp\obj\Debug\OFXSharp.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\obj\Debug\OFXSharp.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\obj\Debug\OFXSharp.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\bin\Debug\OFXSharp.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\bin\Debug\OFXSharp.pdb
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\bin\Debug\SgmlReaderDll.dll
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\obj\Debug\OFXSharp.csprojResolveAssemblyReference.cache
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\obj\Debug\OFXSharp.Resources.resources
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\OFXSharp\obj\Debug\OFXSharp.csproj.GenerateResource.Cache
