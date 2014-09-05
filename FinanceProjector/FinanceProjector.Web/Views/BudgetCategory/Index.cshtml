@@ -1,0 +1,27 @@
+﻿@model FinanceProjector.Web.Models.ViewModels.BudgetCategoryViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Budget Categories</h2>
+
+<input type="button" id="AddCategoryButton" value="Add Category" />
+<div id="BudgetCategories">
+    <div id="AddCategory" style="display: none;">
+        @Html.Partial("AddCategory", Model.AddBudgetCategory)
+    </div>
+    <ul>
+        <div id="CategoryList">
+            @Html.Partial("BudgetCategoryList", Model.User.BudgetCategories)
+        </div>
+    </ul>
+
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("/Scripts/BudgetCategory.js")"></script>
+}

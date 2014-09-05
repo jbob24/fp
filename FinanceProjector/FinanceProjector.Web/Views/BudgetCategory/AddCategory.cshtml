@@ -1,0 +1,10 @@
+﻿@model FinanceProjector.Web.Models.ViewModels.AddBudgetCategoryViewModel
+
+<div>
+    <label for="Parent">Parent</label>
+    @Html.DropDownList("Parent", new SelectList(Model.BudgetCategories), "-- None --")
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)    
+    <input type="Submit" id="SaveCategory" value="Save" />
+    <input type="button" id="CancelCategory" value="Cancel" />
+</div>

@@ -1,0 +1,15 @@
+﻿@model List<FinanceProjector.Model.BudgetCategory>
+
+@foreach (var category in Model)
+{ 
+        <li>@category.Name
+
+            @if (category.SubCategories.Any())
+            {
+                <ul>
+                    @Html.Partial("BudgetCategoryList", category.SubCategories)
+                </ul>
+            }
+        </li>       
+}
+
