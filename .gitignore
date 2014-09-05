@@ -60,3 +60,5 @@ FinanceProjector/FinanceProjector.Web/obj/Debug/FinanceProjector.Web.csproj.File
 FinanceProjector/FinanceProjector.Web.Tests/obj/Debug/FinanceProjector.Web.Tests.csproj.FileListAbsolute.txt
 *.cache
 *.suo
+*.dll
+*.pdb
