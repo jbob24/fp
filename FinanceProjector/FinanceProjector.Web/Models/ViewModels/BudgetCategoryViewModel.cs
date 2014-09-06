@@ -13,9 +13,13 @@ namespace FinanceProjector.Web.Models.ViewModels
 
         public BudgetCategoryViewModel(User user)
         {
-            this.User = user;
+            User = user;
             AddBudgetCategory = new AddBudgetCategoryViewModel();
-            this.User.BudgetCategories.OrderBy(c => c.Name).ToList().ForEach(c => AddBudgetCategory.BudgetCategories.Add(c.Name));
+
+            if (User.BudgetCategories.Any())
+            {
+                User.BudgetCategories.OrderBy(c => c.Name).ToList().ForEach(c => AddBudgetCategory.BudgetCategories.Add(c.Name));    
+            }
         }
     }
 }

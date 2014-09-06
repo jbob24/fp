@@ -6,3 +6,12 @@ C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\Finance
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.dll
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Bson.xml
 C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.xml
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.csprojResolveAssemblyReference.cache
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.dll
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.pdb
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\FinanceProjector.dll
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\FinanceProjector.pdb
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Bson.dll
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.dll
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Bson.xml
+C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.xml

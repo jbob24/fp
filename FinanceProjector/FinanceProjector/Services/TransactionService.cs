@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinanceProjector
+namespace FinanceProjector.Services
 {
     public class TransactionService
     {
@@ -43,7 +43,7 @@ namespace FinanceProjector
                 throw new ArgumentNullException("userId");
             }
 
-            return _repo.FirstOrDefault(u => u.UserId == userId);
+            return _repo.FirstOrDefault(u => u.UserName == userId);
         }
 
         public void SaveUser(User user)

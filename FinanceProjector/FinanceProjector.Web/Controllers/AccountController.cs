@@ -6,6 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using FinanceProjector.Domain.Services;
+using FinanceProjector.Enums;
+using FinanceProjector.Models.Authentication;
+using FinanceProjector.Services;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using FinanceProjector.Web.Filters;
@@ -35,10 +39,31 @@ namespace FinanceProjector.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid)
             {
-                return RedirectToLocal(returnUrl);
+                var authenticationProvider = new AuthenticationService();
+                var authenticationRequest = new AuthenticationRequest()
+                {
+                    UserName = model.UserName,
+                    Password = Hasher.Hash(model.Password)
+                };
+
+                var response = authenticationProvider.AuthenticateUser(authenticationRequest);
+
+                if (response.Status == ResponseStatus.Success)
+                {
+                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    return RedirectToLocal(returnUrl);
+                }
             }
+
+
+
+
+            //if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            //{
+            //    return RedirectToLocal(returnUrl);
+            //}
 
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");

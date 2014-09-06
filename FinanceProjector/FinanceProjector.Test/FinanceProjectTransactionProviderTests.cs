@@ -1,4 +1,5 @@
 ﻿using System;
+using FinanceProjector.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FinanceProjector.TransactionProviders;
 using System.IO;
@@ -41,7 +42,7 @@ namespace FinanceProjector.Test
             var user = new User();
             user.FirstName = "Joe";
             user.LastName = "Henss";
-            user.UserId = _userId;
+            user.UserName = _userId;
             return user;
         }
 

@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FinanceProjectTransactionProviderTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinanceProjector\FinanceProjector.csproj">
