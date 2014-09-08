@@ -18,5 +18,6 @@ namespace FinanceProjector.TransactionProviders.OFX
         public const string QFX_CHECK_NUMBER = "CHECKNUM";
         public const string QFX_MEMO = "MEMO";
         public const string QFX_NAME = "NAME";
+        public const string OFX_END_TAG = "OFX>";
     }
 }

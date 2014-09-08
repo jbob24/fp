@@ -17,9 +17,9 @@
             @Html.Partial("BudgetCategoryList", Model.User.BudgetCategories)
         </div>
     </ul>
-
 </div>
 
+@Html.HiddenFor(m => m.User.UserName, new { id="username"})
 
 @section scripts
 {

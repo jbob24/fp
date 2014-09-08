@@ -10,6 +10,7 @@ namespace FinanceProjector.Web.Models.ViewModels
     {
         public User User { get; set; }
         public AddBudgetCategoryViewModel AddBudgetCategory { get; set; }
+        public TransactionMatchViewModel TransactionMatch { get; set; }
 
         public BudgetCategoryViewModel(User user)
         {
@@ -20,6 +21,8 @@ namespace FinanceProjector.Web.Models.ViewModels
             {
                 User.BudgetCategories.OrderBy(c => c.Name).ToList().ForEach(c => AddBudgetCategory.BudgetCategories.Add(c.Name));    
             }
+
+            TransactionMatch = new TransactionMatchViewModel();
         }
     }
 }

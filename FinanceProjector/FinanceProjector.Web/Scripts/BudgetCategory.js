@@ -11,9 +11,10 @@
         $.ajax({
             type: "POST",
             url: "/BudgetCategory/AddCategory",
-            data: { userName: "joehenss", category: $('#Name').val(), parent: $('#Parent').val() }
+            data: { userName: $('#username').val(), category: $('#Name').val(), parent: $('#Parent').val() }
         }).done(function (result) {
             $("#CategoryList").html(result);
+            $('#Name').val('').focus();
         }).error(function (result, status, error) {
             var message = error;
             alert(message);

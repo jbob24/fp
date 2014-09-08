@@ -1,0 +1,23 @@
+﻿@using System.Drawing.Design
+@model FinanceProjector.Web.Models.ViewModels.EditBudgetCatgegoryViewModel
+
+@{
+    ViewBag.Title = "Edit Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Category.Name</h2>
+
+<div id="MatchList" style="float: left;">
+    @Html.Partial("TransactionMatchList", Model.Category.TransactionMatches)
+</div>
+<div id="AddMatch" style="float: left; margin-left: 20px;">
+        @Html.Partial("AddTransactionMatch", Model.TransactionMatch)
+</div>
+
+@Html.HiddenFor(m => m.Category.Name, new { id="categoryName" })
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("/Scripts/TransactionMatch.js")"></script>
+}

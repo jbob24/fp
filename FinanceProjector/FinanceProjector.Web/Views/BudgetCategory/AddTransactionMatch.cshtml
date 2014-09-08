@@ -1,0 +1,23 @@
+﻿@using FinanceProjector.Enums
+@using FinanceProjector.Web.Helpers
+
+@model FinanceProjector.Web.Models.ViewModels.TransactionMatchViewModel
+
+<div>
+    @Html.LabelFor(m => m.TransactionType)
+    @Html.DropDownListFor(m => m.TransactionType, Extensions.TransactionTypeSelectList(), "-- None --")
+    @Html.LabelFor(m => m.Amount)
+    @Html.TextBoxFor(m => m.Amount)
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+
+    @Html.LabelFor(m => m.Comments)
+    @Html.TextBoxFor(m => m.Comments)
+
+    @Html.LabelFor(m => m.PayeeID)
+    @Html.TextBoxFor(m => m.PayeeID)
+
+    <input type="Submit" id="SaveMatch" value="Save" />
+    <input type="button" id="CancelMatch" value="Cancel" />
+</div>

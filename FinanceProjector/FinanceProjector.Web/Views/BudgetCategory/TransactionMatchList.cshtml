@@ -1,0 +1,36 @@
+﻿@model List<FinanceProjector.Model.TransactionMatch>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Comments</th>
+                <th>PayeeID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var match in Model)
+            {
+                <tr>
+                    <td>
+                        @if (match.TransactionType.HasValue)
+                        {
+                            @match.TransactionType.Value.ToString();
+                        }
+                    </td>
+                    <td>
+                        @if (match.Amount.HasValue)
+                        {
+                            @match.Amount.Value.ToString("C");
+                        }
+                    </td>
+                    <td>@match.Name</td>
+                    <td>@match.Comments</td>
+                    <td>@match.PayeeID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

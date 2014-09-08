@@ -58,21 +58,21 @@ namespace FinanceProjector.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void TransactionService_FilePathNull()
         {
-            var transactions = _service.ImportTransactions(null, null, Enums.TransactionProviderType.OFXTransactionProvider);
+            var transactions = _service.ImportTransactionsFromFile(null, null, Enums.TransactionProviderType.OFXTransactionProvider);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TransactionService_UserIdNull()
         {
-            var transactions = _service.ImportTransactions(null, "blah", Enums.TransactionProviderType.OFXTransactionProvider);
+            var transactions = _service.ImportTransactionsFromFile(null, "blah", Enums.TransactionProviderType.OFXTransactionProvider);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FileNotFoundException))]
         public void TransactionService_InvalidFile()
         {
-            var transactions = _service.ImportTransactions(_user, "blah", Enums.TransactionProviderType.OFXTransactionProvider);
+            var transactions = _service.ImportTransactionsFromFile(_user, "blah", Enums.TransactionProviderType.OFXTransactionProvider);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@ namespace FinanceProjector.Test
             
             var filePath = @"Checking1.qfx";
 
-            var transactions = _service.ImportTransactions(_user, filePath, Enums.TransactionProviderType.OFXTransactionProvider);
+            var transactions = _service.ImportTransactionsFromFile(_user, filePath, Enums.TransactionProviderType.OFXTransactionProvider);
 
             Assert.IsNotNull(transactions);
             Assert.AreEqual(1098, _user.Transactions.Count);

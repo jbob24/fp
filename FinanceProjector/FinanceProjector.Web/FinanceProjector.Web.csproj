@@ -191,9 +191,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ViewModels\AddBudgetCategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\BudgetCategoryViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditBudgetCatgegoryViewModel.cs" />
+    <Compile Include="Models\ViewModels\TransactionMatchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +258,7 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\BudgetCategory.js" />
+    <Content Include="Scripts\TransactionMatch.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -269,6 +273,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Transaction.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,6 +317,10 @@
     <Content Include="Views\BudgetCategory\Index.cshtml" />
     <Content Include="Views\Shared\BudgetCategoryList.cshtml" />
     <Content Include="Views\BudgetCategory\AddCategory.cshtml" />
+    <Content Include="Views\Transaction\TransactionList.cshtml" />
+    <Content Include="Views\BudgetCategory\Edit.cshtml" />
+    <Content Include="Views\BudgetCategory\AddTransactionMatch.cshtml" />
+    <Content Include="Views\BudgetCategory\TransactionMatchList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

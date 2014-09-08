@@ -53,7 +53,36 @@ namespace FinanceProjector.Services
             _repo.Save(user);
         }
 
-        public List<Transaction> ImportTransactions(User user, string filePath, TransactionProviderType providerType)
+        public List<Transaction> ImportTransactions(User user, string transactionStr, TransactionProviderType providerType)
+        {
+            ValidateUser(user);
+
+            _user = user;
+
+            if (string.IsNullOrEmpty(transactionStr))
+            {
+                throw new ArgumentNullException("transactionStr");
+            }
+
+            List<Transaction> transactions = null;
+            List<Transaction> newTransactions = null;
+
+
+            switch (providerType)
+            {
+                case TransactionProviderType.OFXTransactionProvider:
+                    transactions = new OFXTransactionProvider().LoadTransactions(transactionStr);
+                    break;
+            }
+
+
+            var insertedTransactions = InsertNewTransactions(transactions);
+
+            _repo.Save(_user);
+            return insertedTransactions;
+        }
+
+        public List<Transaction> ImportTransactionsFromFile(User user, string filePath, TransactionProviderType providerType)
         {
             ValidateUser(user);
 
@@ -63,7 +92,7 @@ namespace FinanceProjector.Services
             {
                 throw new ArgumentNullException("filePath");
             }
-                
+
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException(string.Format("The file at {0} was not found.", filePath));
@@ -71,10 +100,10 @@ namespace FinanceProjector.Services
 
             List<Transaction> transactions = null;
             List<Transaction> newTransactions = null;
-            
+
             using (var fileStream = new FileStream(filePath, FileMode.Open))
             {
-                switch(providerType)
+                switch (providerType)
                 {
                     case TransactionProviderType.OFXTransactionProvider:
                         transactions = new OFXTransactionProvider().LoadTransactions(fileStream);
@@ -126,21 +155,33 @@ namespace FinanceProjector.Services
 
         private void AssignBudgetCategory(Transaction transaction)
         {
+            bool categoryFound = false;
+
             foreach (var budgetCategory in _user.BudgetCategories)
             {
-                FindMatchingBudgetCategory(transaction, budgetCategory);
+                categoryFound = FindMatchingBudgetCategory(transaction, budgetCategory);
+
+                if (categoryFound)
+                {
+                    return;
+                }
             }
         }
 
-        private void FindMatchingBudgetCategory(Transaction transaction, BudgetCategory budgetCategory)
+        private bool FindMatchingBudgetCategory(Transaction transaction, BudgetCategory budgetCategory)
         {
             if (!FindBudgetCategorName(transaction, budgetCategory))
             {
                 foreach (var subCategory in budgetCategory.SubCategories)
                 {
-                    FindMatchingBudgetCategory(transaction, subCategory);
+                    if (FindMatchingBudgetCategory(transaction, subCategory))
+                    {
+                        return true;
+                    }
                 }
             }
+
+            return false;
         }
 
         private static bool FindBudgetCategorName(Transaction transaction, BudgetCategory budgetCategory)

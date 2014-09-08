@@ -1,0 +1,29 @@
+﻿@model List<FinanceProjector.Model.Transaction>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Transaction Type</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Comments</th>
+                <th>Payee ID</th>
+                <th>Budget Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model.OrderByDescending(t => t.Date))
+            {
+                <tr>
+                    <td>@transaction.Date.ToShortDateString()</td>
+                    <td>@transaction.TransactionType.ToString()</td>
+                    <td>@transaction.Name</td>
+                    <td>@transaction.Amount.ToString("C")</td>
+                    <td>@transaction.Comments</td>
+                    <td>@transaction.PayeeID</td>
+                    <td>@transaction.BudgetCategoryName</td>
+                </tr>
+            }
+        </tbody>
+    </table>

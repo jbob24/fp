@@ -2,7 +2,7 @@
 
 @foreach (var category in Model)
 { 
-        <li>@category.Name
+        <li>@Html.ActionLink(@category.Name, "Edit", new { categoryName = @category.Name })
 
             @if (category.SubCategories.Any())
             {

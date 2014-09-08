@@ -5,26 +5,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Transactions</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Budget Category</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var transaction in Model.Transactions.OrderByDescending(t => t.Date))
-{ 
-    <tr>
-        <td>@transaction.Date.ToShortDateString()</td>
-        <td>@transaction.Name</td>
-        <td>@transaction.Amount.ToString("C")</td>
-        <td>@transaction.BudgetCategoryName</td>
-    </tr>
+@using (Html.BeginForm("ClearAllTransactions", "Transaction"))
+{
+    <input type="submit" value="Clear All Transactions"/>
 }
-    </tbody>
-</table>
+
+<div>
+    Select QFX File To Import:
+    <input type="file" accept=".qfx" id="qfxfile" />
+    <input type="button" id="importBtn" value="Import"/>
+</div>
+
+@if (!Model.Transactions.Any())
+{
+    <div>No transactions have been imported</div>
+}
+else
+{
+    <div id="transactionlist"> @Html.Partial("TransactionList", Model.Transactions)</div>
+   
+    @*
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Budget Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model.Transactions.OrderByDescending(t => t.Date))
+            {
+                <tr>
+                    <td>@transaction.Date.ToShortDateString()</td>
+                    <td>@transaction.Name</td>
+                    <td>@transaction.Amount.ToString("C")</td>
+                    <td>@transaction.BudgetCategoryName</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+    
+}
+
+@Html.HiddenFor(m => m.UserName, new { id = "username" })
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("/Scripts/Transaction.js")"></script>
+}
