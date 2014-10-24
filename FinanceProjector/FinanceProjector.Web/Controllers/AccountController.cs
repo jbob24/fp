@@ -99,22 +99,30 @@ namespace FinanceProjector.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
+            var message = "Unable to register user.  Please try again.";
+
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                try
-                {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (MembershipCreateUserException e)
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                }
+                    var authenticationProvider = new AuthenticationService();
+                    var request = new RegisterUserRequest()
+                    {
+                        User = model.ToUser()
+                    };
+
+                    var response = authenticationProvider.RegisterUser(request);
+
+                    if (response.Status == ResponseStatus.Success)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.UserName, false);
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    message = response.Message; 
             }
 
             // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", message);
             return View(model);
         }
 

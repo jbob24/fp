@@ -8,6 +8,7 @@ using FinanceProjector.Repository;
 using Microsoft.SqlServer.Server;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using FinanceProjector.Domain.Services;
 
 
 namespace FinanceProjector.Services
@@ -39,6 +40,7 @@ namespace FinanceProjector.Services
                     {
                         if (user.Password == request.Password)
                         {
+                            _repo.Save(user);
                             response.User = user;
                         }
                         else
@@ -59,6 +61,42 @@ namespace FinanceProjector.Services
                 response.SetStatus(ResponseStatus.Exception, ex.Message);
             }
 
+
+            return response;
+        }
+
+        public RegisterUserResponse RegisterUser(RegisterUserRequest request)
+        {
+            var response = new RegisterUserResponse();
+
+            try
+            {
+                if (!RegisterUserRequest.IsValid(request))
+                {
+                    response.SetStatus(ResponseStatus.GeneralError, "Request is null or invalid.");
+                }
+                else
+                {
+                    var user = GetUser(request.User.UserName);
+
+                    if (user != null)
+                    {
+                        response.SetStatus(ResponseStatus.InvalidUserName, "The username already exists.");
+                    }
+                    else
+                    {
+                        request.User.Password = Hasher.Hash(request.User.Password);
+                        _repo.Save(request.User);
+                        response.User = request.User;
+                    }
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.SetStatus(ResponseStatus.Exception, ex.Message);
+            }
 
             return response;
         }

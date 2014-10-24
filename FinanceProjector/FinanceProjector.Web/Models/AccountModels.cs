@@ -72,6 +72,15 @@ namespace FinanceProjector.Web.Models
 
     public class RegisterModel
     {
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -86,6 +95,18 @@ namespace FinanceProjector.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public FinanceProjector.Model.User ToUser()
+        {
+            var user = new FinanceProjector.Model.User();
+
+            user.FirstName = this.FirstName;
+            user.LastName = this.LastName;
+            user.UserName = this.UserName;
+            user.Password = this.Password;
+
+            return user;
+        }
     }
 
     public class ExternalLogin

@@ -15,3 +15,4 @@ C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinancePr
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Bson.xml
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector\bin\Debug\MongoDB.Driver.xml
+C:\Users\d_henssj\Documents\Visual Studio 2012\Projects\FinanceProjector\FinanceProjector\FinanceProjector\obj\Debug\FinanceProjector.csprojResolveAssemblyReference.cache

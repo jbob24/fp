@@ -56,8 +56,11 @@
     <Compile Include="Interfaces\ITransactionProvider.cs" />
     <Compile Include="Model\Authentication\AuthenticationRequest.cs" />
     <Compile Include="Model\Authentication\AuthenticationResponse.cs" />
+    <Compile Include="Model\Authentication\RegisterUserRequest.cs" />
+    <Compile Include="Model\Authentication\RegisterUserResponse.cs" />
     <Compile Include="Model\Authentication\SaveUserRequest.cs" />
     <Compile Include="Model\Authentication\SaveUserResponse.cs" />
+    <Compile Include="Model\Budget.cs" />
     <Compile Include="Model\BudgetCategory.cs" />
     <Compile Include="Model\RequestBase.cs" />
     <Compile Include="Model\ResponseBase.cs" />

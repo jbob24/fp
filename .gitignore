@@ -62,3 +62,7 @@ FinanceProjector/FinanceProjector.Web.Tests/obj/Debug/FinanceProjector.Web.Tests
 *.suo
 *.dll
 *.pdb
+*.cache
+*.cache
+*.suo
+*.cache

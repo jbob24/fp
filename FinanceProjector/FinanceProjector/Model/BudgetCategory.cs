@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace FinanceProjector.Model
 {
     public class BudgetCategory
     {
+        public ObjectId Id { get; set; }
         public string Name { get; set; }
         public List<TransactionMatch> TransactionMatches { get; set; }
         public List<BudgetCategory> SubCategories { get; set; }

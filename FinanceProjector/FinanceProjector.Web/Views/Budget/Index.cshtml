@@ -1,0 +1,67 @@
+﻿@model FinanceProjector.Web.Models.ViewModels.BudgetListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Budget</h2>
+
+<table class="table">
+    <tr>
+        <td colspan="11" align="center">@Model.Budget.Month.ToString("MMMM yyyy")</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td colspan="4" align="center">Planned</td>
+        <td colspan="4" align="center">Actual</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td>Credits</td>
+        <td>Debits</td>
+        <td>Total</td>
+        <td>% of Budget</td>
+        <td>Credits</td>
+        <td>Debits</td>
+        <td>Total</td>
+        <td>% of Budget</td>
+    </tr>
+    <tr>
+        <td colspan="11">totals</td>
+    </tr>
+    <tr>
+        <td colspan="11"></td>
+    </tr>
+
+    @foreach (var item in Model.BudgetItems)
+    { 
+        <tr>
+            <td colspan="2">@item.CategoryName</td>
+            <td>@item.PlannedCredit</td>
+            <td>@item.PlannedDebit</td>
+            <td>0</td>
+            <td>0</td>
+            <td>@item.ActualCredit</td>
+            <td>@item.ActualDebit</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        
+            foreach (var subItem in item.SubCategories)
+            { 
+                <tr>
+                    <td></td>
+                    <td>@subItem.CategoryName</td>
+                    <td>@subItem.PlannedCredit</td>
+                    <td>@subItem.PlannedDebit</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>@subItem.ActualCredit</td>
+                    <td>@subItem.ActualDebit</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            }
+    }
+</table>
