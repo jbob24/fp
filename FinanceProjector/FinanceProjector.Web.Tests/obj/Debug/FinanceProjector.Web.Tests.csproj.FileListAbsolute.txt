@@ -95,12 +95,9 @@ C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinancePr
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Spatial.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Http.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Http.OData.dll
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Http.WebHost.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Mvc.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Razor.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
@@ -120,10 +117,7 @@ C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinancePr
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\FinanceProjector.Web.pdb
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Http.xml
-C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Http.WebHost.xml
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Mvc.xml
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.Razor.xml
 C:\Users\Joe\Documents\Visual Studio 2012\Projects\fp\FinanceProjector\FinanceProjector.Web.Tests\bin\Debug\System.Web.WebPages.xml

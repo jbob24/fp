@@ -90,7 +90,10 @@ namespace FinanceProjector.Web.Models.ViewModels
                     this.Budget.ActualItems.Add(actualItem);
                 }
 
-                actualItem.DebitAmount += transaction.Amount;                
+                if (transaction.Amount > 0)
+                    actualItem.CreditAmount += transaction.Amount;
+                else
+                    actualItem.DebitAmount += -transaction.Amount;                
             }
         }
     }

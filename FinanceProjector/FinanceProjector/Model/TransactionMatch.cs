@@ -44,7 +44,7 @@ namespace FinanceProjector.Model
         {
             if (!string.IsNullOrEmpty(Name))
             {
-                return !string.IsNullOrEmpty(transaction.Name) && Name.Equals(transaction.Name, StringComparison.InvariantCultureIgnoreCase);
+                return !string.IsNullOrEmpty(transaction.Name) && transaction.Name.StartsWith(Name, StringComparison.InvariantCultureIgnoreCase);  //.Equals(transaction.Name, StringComparison.InvariantCultureIgnoreCase);
             }
 
             return true;
