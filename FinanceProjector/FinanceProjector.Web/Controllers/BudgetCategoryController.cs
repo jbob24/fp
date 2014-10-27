@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace FinanceProjector.Web.Controllers
 {
+    [Authorize]
     public class BudgetCategoryController : Controller
     {
         private TransactionService _service;
@@ -25,29 +26,19 @@ namespace FinanceProjector.Web.Controllers
             var model = new BudgetCategoryViewModel(user);
             return View(model);
         }
-
+        
         [HttpPost]
-        public ActionResult AddCategory(string userName, string category, string parent)
+        public ActionResult AddCategory(string userName, string category)
         {
             var user = _service.GetUserByUserId(userName);
 
             if (!string.IsNullOrWhiteSpace(category))
             {
-                var existingCategory =
-                    user.BudgetCategories.FirstOrDefault(
-                        c => c.Name.Equals(parent, StringComparison.InvariantCultureIgnoreCase));
-                var newCategory = new BudgetCategory {Name = category};
-
-                if (existingCategory != null)
+                if (!user.BudgetCategories.Any(c => c.Name == category))
                 {
-                    existingCategory.SubCategories.Add(newCategory);
+                    user.AddBudgetCategory(category);
+                    _service.SaveUser(user);
                 }
-                else
-                {
-                    user.BudgetCategories.Add(newCategory);
-                }
-
-                _service.SaveUser(user);
             }
 
             return PartialView("BudgetCategoryList", user.BudgetCategories);
@@ -56,7 +47,7 @@ namespace FinanceProjector.Web.Controllers
         public ActionResult Edit(string categoryName)
         {
             var user = _service.GetUserByUserId(User.Identity.Name);
-            var category = FindBudgetCategory(user.BudgetCategories, categoryName); // user.BudgetCategories.FirstOrDefault(c => c.Name == categoryName);
+            var category = user.BudgetCategories.FirstOrDefault(c => c.Name == categoryName);
 
             if (category != null)
             {
@@ -72,45 +63,20 @@ namespace FinanceProjector.Web.Controllers
 
             if (user != null)
             {
-                var category = FindBudgetCategory(user.BudgetCategories, match.CategoryName); // user.BudgetCategories.FirstOrDefault(c => c.Name == match.CategoryName);
+                var category = user.BudgetCategories.FirstOrDefault(c => c.Name == match.CategoryName);
 
                 if (category != null)
                 {
-                    category.TransactionMatches.Add(new TransactionMatch { TransactionType = match.TransactionType, Amount = match.Amount, Comments = match.Comments, Name = match.Name, PayeeID = match.PayeeID});
+                    var categoryItem = category.CategoryItems.FirstOrDefault(i => i.Name == match.CategoryItem);
 
-                    _service.SaveUser(user);
+                    if (categoryItem != null)
+                    {
+                        categoryItem.TransactionMatches.Add(new TransactionMatch { TransactionType = match.TransactionType, Amount = match.Amount, Comments = match.Comments, Name = match.Name, PayeeID = match.PayeeID });
+                        _service.SaveUser(user);
+                    }
 
-                    return PartialView("TransactionMatchList", category.TransactionMatches);
-                }
-            }
 
-            return null;
-        }
-
-        private BudgetCategory FindBudgetCategory(List<BudgetCategory> categories, string categoryName)
-        {
-            BudgetCategory foundCategory = null;
-
-            foreach (var budgetCategory in categories)
-            {
-                if (budgetCategory.Name == categoryName)
-                {
-                    foundCategory = budgetCategory;
-                }
-
-                if (foundCategory != null)
-                {
-                    return foundCategory;
-                }
-
-                if (budgetCategory.SubCategories.Any())
-                {
-                    foundCategory = FindBudgetCategory(budgetCategory.SubCategories, categoryName);
-                }
-
-                if (foundCategory != null)
-                {
-                    return foundCategory;
+                    return PartialView("TransactionMatchList", categoryItem.TransactionMatches);
                 }
             }
 

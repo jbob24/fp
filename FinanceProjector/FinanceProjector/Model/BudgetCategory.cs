@@ -11,13 +11,45 @@ namespace FinanceProjector.Model
     {
         public ObjectId Id { get; set; }
         public string Name { get; set; }
-        public List<TransactionMatch> TransactionMatches { get; set; }
-        public List<BudgetCategory> SubCategories { get; set; }
+        //public List<TransactionMatch> TransactionMatches { get; set; }
+        //public List<BudgetCategory> SubCategories { get; set; }
+        public List<BudgetCategoryItem> CategoryItems { get; set; }
 
         public BudgetCategory()
         {
-            SubCategories = new List<BudgetCategory>();
+            //SubCategories = new List<BudgetCategory>();
+            //TransactionMatches = new List<TransactionMatch>();
+            CategoryItems = new List<BudgetCategoryItem>();
+        }
+
+        public BudgetCategory(string name) : this()
+        {
+            this.Name = name;
+        }
+
+        public BudgetCategoryItem AddCategoryItem(string name)
+        {
+            var newItem = new BudgetCategoryItem(name, this.Name);
+            CategoryItems.Add(newItem);
+            return newItem;
+        }
+    }
+
+    public class BudgetCategoryItem
+    {
+        public string Name { get; set; }
+        public string BudgetCategoryName { get; set; }
+        public List<TransactionMatch> TransactionMatches { get; set; }
+
+        public BudgetCategoryItem(string name)
+        {
+            this.Name = name;
             TransactionMatches = new List<TransactionMatch>();
+        }
+
+        public BudgetCategoryItem(string name, string budgetCategoryName) : this(name)
+        {
+            this.BudgetCategoryName = budgetCategoryName;
         }
     }
 }

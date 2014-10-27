@@ -17,10 +17,10 @@ namespace FinanceProjector.Web.Models.ViewModels
             User = user;
             AddBudgetCategory = new AddBudgetCategoryViewModel();
 
-            if (User.BudgetCategories.Any())
-            {
-                User.BudgetCategories.OrderBy(c => c.Name).ToList().ForEach(c => AddBudgetCategory.BudgetCategories.Add(c.Name));    
-            }
+            //if (User.BudgetCategories.Any())
+            //{
+            //    User.BudgetCategories.OrderBy(c => c.Name).ToList().ForEach(c => AddBudgetCategory.BudgetCategories.Add(c.Name));    
+            //}
 
             TransactionMatch = new TransactionMatchViewModel();
         }

@@ -8,10 +8,30 @@
 
 <h2>@Model.Category.Name</h2>
 
-<div id="MatchList" style="float: left;">
-    @Html.Partial("TransactionMatchList", Model.Category.TransactionMatches)
+<div>
+    <table class="table table-bordered">
+        <tr><th>Category Item</th><th colspan="2">Transaction Matches</th></tr>
+        @foreach (var item in Model.Category.CategoryItems)
+        { 
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    @if (item.TransactionMatches.Any())
+                    { 
+                        <div id="@item.Name" class="MatchList">
+                            @Html.Partial("TransactionMatchList", item.TransactionMatches)
+                        </div>
+                    }
+                <input type="button" class="AddMatchButton" data-categoryitem="@item.Name" value="Add Match" /></td>
+            </tr>    
+        }
+    </table>
 </div>
-<div id="AddMatch" style="float: left; margin-left: 20px;">
+
+@*<div id="MatchList" style="float: left;">
+    @Html.Partial("TransactionMatchList", Model.Category.TransactionMatches)
+</div>*@
+<div id="AddMatch" style="float: left; margin-left: 20px; display:none;">
         @Html.Partial("AddTransactionMatch", Model.TransactionMatch)
 </div>
 

@@ -18,6 +18,8 @@
     @Html.LabelFor(m => m.PayeeID)
     @Html.TextBoxFor(m => m.PayeeID)
 
+    @Html.Hidden("CategoryItem")
+
     <input type="Submit" id="SaveMatch" value="Save" />
     <input type="button" id="CancelMatch" value="Cancel" />
 </div>

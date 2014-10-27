@@ -170,29 +170,37 @@ namespace FinanceProjector.Services
 
         private bool FindMatchingBudgetCategory(Transaction transaction, BudgetCategory budgetCategory)
         {
-            if (!FindBudgetCategorName(transaction, budgetCategory))
+            foreach (var categoryItem in budgetCategory.CategoryItems)
             {
-                foreach (var subCategory in budgetCategory.SubCategories)
+                if (FindBudgetCategorName(transaction, categoryItem))
                 {
-                    if (FindMatchingBudgetCategory(transaction, subCategory))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
+
+            //if (!FindBudgetCategorName(transaction, budgetCategory))
+            //{
+            //    foreach (var subCategory in budgetCategory.SubCategories)
+            //    {
+            //        if (FindMatchingBudgetCategory(transaction, subCategory))
+            //        {
+            //            return true;
+            //        }
+            //    }
+            //}
 
             return false;
         }
 
-        private static bool FindBudgetCategorName(Transaction transaction, BudgetCategory budgetCategory)
+        private static bool FindBudgetCategorName(Transaction transaction, BudgetCategoryItem categoryItem)
         {
             try
             {
-                foreach (var transactionMatch in budgetCategory.TransactionMatches)
+                foreach (var transactionMatch in categoryItem.TransactionMatches)
                 {
                     if (transactionMatch.IsMatch(transaction))
                     {
-                        transaction.BudgetCategoryName = budgetCategory.Name;
+                        transaction.BudgetCategoryName = categoryItem.Name;
                         return true;
                     }
                 }

@@ -28,10 +28,5 @@ namespace FinanceProjector.Model
         }
     }
 
-    public class BudgetItem
-    {
-        public string CategoryName { get; set; }
-        public decimal CreditAmount { get; set; }
-        public decimal DebitAmount { get; set; }
-    }
+
 }

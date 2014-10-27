@@ -17,13 +17,20 @@ namespace FinanceProjector.Test
         private TransactionService _service;
         private static string _userId = "joehenss";
         private User _user;
+        private bool _deleteData = false;
 
         [TestInitialize]
         public void Setup()
         {
             _service = new TransactionService();
-            _user = CreateUser();
-            AddUser();
+
+            _user = _service.GetUserByUserId(_userId);
+
+            if (_user == null)
+            {
+                _user = CreateUser();
+                AddUser();
+            }
         }
 
         [TestCleanup]
@@ -48,10 +55,13 @@ namespace FinanceProjector.Test
 
         private void RemoveUser()
         {
-            //_service.DeleteUser(_user);
-            //var user = _service.GetUserByUserId(_userId);
+            if (_deleteData)
+            {
+                _service.DeleteUser(_user);
 
-            //Assert.IsNull(user);
+                //var user = _service.GetUserByUserId(_userId);
+                //Assert.IsNull(user);
+            }
         }
 
         [TestMethod]
@@ -81,7 +91,7 @@ namespace FinanceProjector.Test
             //var provider = new OFXTransactionProvider();
 
             SetupBudgetCategories();
-            
+
             var filePath = @"Checking1.qfx";
 
             var transactions = _service.ImportTransactionsFromFile(_user, filePath, Enums.TransactionProviderType.OFXTransactionProvider);
@@ -100,28 +110,90 @@ namespace FinanceProjector.Test
         {
             if (_user.BudgetCategories == null || !_user.BudgetCategories.Any())
             {
-                var groceries = new BudgetCategory { Name = "Groceries" };
+                var income = _user.AddBudgetCategory("Income");
+                var incomeItem = income.AddCategoryItem("Income");
+
+                var housing = _user.AddBudgetCategory("Housing");
+                var rent = housing.AddCategoryItem("Rent");
+                rent.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -2100m });
+
+                var utilities = _user.AddBudgetCategory("Utilities");
+                var gasElectric = utilities.AddCategoryItem("Gas/Electric");
+                var phone = utilities.AddCategoryItem("Phone");
+                var internet = utilities.AddCategoryItem("Internet");
+                var cable = utilities.AddCategoryItem("Cable");
+
+                var food = _user.AddBudgetCategory("Food");
+                var groceries = food.AddCategoryItem("Groceries");
+                var eatingOut = food.AddCategoryItem("Eating Out");
+
                 groceries.TransactionMatches.Add(new TransactionMatch { Name = "Windmill Farms" });
                 groceries.TransactionMatches.Add(new TransactionMatch { Name = "VONS Store" });
                 groceries.TransactionMatches.Add(new TransactionMatch { Name = "Trader Joe s" });
 
-                var foodCategory = new BudgetCategory { Name = "Food" };
-                foodCategory.SubCategories.Add (groceries);
-                foodCategory.SubCategories.Add(new BudgetCategory { Name = "Eating Out" });
+                var clothing = _user.AddBudgetCategory("Clothing");
+                clothing.AddCategoryItem("Adults");
+                clothing.AddCategoryItem("Children");
+                clothing.AddCategoryItem("Cleaners");
 
-                var lukie = new BudgetCategory { Name = "Lukie" };
-                lukie.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -500m });
-                var childCare = new BudgetCategory { Name = "Child Care" };
-                childCare.SubCategories.Add(lukie);
+                var transportation = _user.AddBudgetCategory("Transportation");
+                transportation.AddCategoryItem("Gas & Oil");
+                transportation.AddCategoryItem("Repairs & Tires");
+                transportation.AddCategoryItem("License & Taxes");
+                transportation.AddCategoryItem("Car Replacement");
+                transportation.AddCategoryItem("Other");
+                transportation.AddCategoryItem("Car Wash");
 
-                var rent = new BudgetCategory { Name = "Rent" };
-                rent.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -2100m });
-                var housing = new BudgetCategory { Name = "Housing" };
-                housing.SubCategories.Add(rent);
+                var medicalHealth = _user.AddBudgetCategory("Medical/Health");
+                medicalHealth.AddCategoryItem("Medications");
+                medicalHealth.AddCategoryItem("Doctor Bills");
+                medicalHealth.AddCategoryItem("Dentist");
+                medicalHealth.AddCategoryItem("Optometrist");
+                medicalHealth.AddCategoryItem("Vitamins");
+                medicalHealth.AddCategoryItem("Other");
 
-                _user.BudgetCategories.Add(foodCategory);
-                _user.BudgetCategories.Add(childCare);
-                _user.BudgetCategories.Add(housing);
+                var insurance = _user.AddBudgetCategory("Insurance");
+                insurance.AddCategoryItem("Life");
+                insurance.AddCategoryItem("Health");
+                insurance.AddCategoryItem("Renters");
+                insurance.AddCategoryItem("Auto");
+
+                var personal = _user.AddBudgetCategory("Personal");
+                var nanny = personal.AddCategoryItem("Nanny");
+                personal.AddCategoryItem("Child Care");
+                nanny.TransactionMatches.Add(new TransactionMatch { TransactionType = TransactionType.Check, Amount = -500m });
+
+                personal.AddCategoryItem("Toiletries");
+                personal.AddCategoryItem("Cosmetics/Hair Care");
+                personal.AddCategoryItem("Preschool");
+                personal.AddCategoryItem("Books/Supplies");
+                personal.AddCategoryItem("Subscriptions");
+                personal.AddCategoryItem("Organization Dues");
+                personal.AddCategoryItem("Pocket Money (Melissa)");
+                personal.AddCategoryItem("Pocket Money (Joe)");
+                personal.AddCategoryItem("Gifts");
+                personal.AddCategoryItem("Sports");
+                personal.AddCategoryItem("Misc");
+                personal.AddCategoryItem("YMCA");
+                personal.AddCategoryItem("Household Supplies");
+                personal.AddCategoryItem("Nursery");
+                personal.AddCategoryItem("School");
+                personal.AddCategoryItem("Charity");
+
+                var recreation = _user.AddBudgetCategory("Recreation");
+                recreation.AddCategoryItem("Entertainment");
+                recreation.AddCategoryItem("Vacation");
+
+                var debts = _user.AddBudgetCategory("Debts");
+                debts.AddCategoryItem("Mazda");
+                debts.AddCategoryItem("Nissan");
+                debts.AddCategoryItem("Dreyfuss");
+                debts.AddCategoryItem("Gloria");
+                debts.AddCategoryItem("Melissa Chase");
+                debts.AddCategoryItem("Citi");
+                debts.AddCategoryItem("Bloomingdales");
+                debts.AddCategoryItem("Student Loan");
+                debts.AddCategoryItem("Banana Republic");
 
                 _service.SaveUser(_user);
             }

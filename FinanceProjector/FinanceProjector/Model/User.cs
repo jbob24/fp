@@ -28,5 +28,12 @@ namespace FinanceProjector.Model
             BudgetCategories = new List<BudgetCategory>();
             Budgets = new List<Budget>();
         }
+
+        public BudgetCategory AddBudgetCategory(string name)
+        {
+            var newCategory = new BudgetCategory(name);
+            this.BudgetCategories.Add(newCategory);
+            return newCategory;
+        }
     }
 }

@@ -1,15 +1,28 @@
 ﻿@model List<FinanceProjector.Model.BudgetCategory>
 
-@foreach (var category in Model)
-{ 
-        <li>@Html.ActionLink(@category.Name, "Edit", new { categoryName = @category.Name })
 
-            @if (category.SubCategories.Any())
+<table class="table table-bordered">
+
+    @foreach (var category in Model)
+    { 
+        <tr>
+            <td colspan="2">@Html.ActionLink(@category.Name, "Edit", new { categoryName = @category.Name })</td>
+
+            @if (category.CategoryItems.Any())
             {
-                <ul>
-                    @Html.Partial("BudgetCategoryList", category.SubCategories)
-                </ul>
-            }
-        </li>       
-}
+                foreach (var item in category.CategoryItems)
+                {
+                <tr>
+                    <td></td>
+                    <td>
+                        @item.Name
+                    </td>
 
+                </tr>
+                }
+
+            }
+        </tr>
+    }
+
+</table>

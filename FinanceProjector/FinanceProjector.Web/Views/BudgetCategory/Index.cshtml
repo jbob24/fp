@@ -12,11 +12,11 @@
     <div id="AddCategory" style="display: none;">
         @Html.Partial("AddCategory", Model.AddBudgetCategory)
     </div>
-    <ul>
+    @*<ul>*@
         <div id="CategoryList">
             @Html.Partial("BudgetCategoryList", Model.User.BudgetCategories)
         </div>
-    </ul>
+    @*</ul>*@
 </div>
 
 @Html.HiddenFor(m => m.User.UserName, new { id="username"})

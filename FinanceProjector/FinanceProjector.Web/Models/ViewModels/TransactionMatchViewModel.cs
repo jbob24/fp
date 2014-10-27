@@ -14,5 +14,6 @@ namespace FinanceProjector.Web.Models.ViewModels
         public string Name { get; set; }
         public string Comments { get; set; }
         public string PayeeID { get; set; }
+        public string CategoryItem { get; set; }
     }
 }

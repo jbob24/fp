@@ -10,11 +10,11 @@ namespace FinanceProjector.Web.Models.ViewModels
     {
         [Required(ErrorMessage="Name is required")]
         public string Name { get; set; }
-        public List<string> BudgetCategories { get; set; }
+        //public List<string> BudgetCategories { get; set; }
 
-        public AddBudgetCategoryViewModel()
-        {
-            BudgetCategories = new List<string>();
-        }
+        //public AddBudgetCategoryViewModel()
+        //{
+        //    BudgetCategories = new List<string>();
+        //}
     }
 }
