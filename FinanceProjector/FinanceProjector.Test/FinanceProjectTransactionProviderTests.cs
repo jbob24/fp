@@ -8,6 +8,7 @@ using FinanceProjector.TransactionProviders.OFX;
 using FinanceProjector.Model;
 using System.Linq;
 using FinanceProjector.Enums;
+using FinanceProjector.Domain.Services;
 
 namespace FinanceProjector.Test
 {
@@ -50,6 +51,7 @@ namespace FinanceProjector.Test
             user.FirstName = "Joe";
             user.LastName = "Henss";
             user.UserName = _userId;
+            user.Password = Hasher.Hash("password");
             return user;
         }
 

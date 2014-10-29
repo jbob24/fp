@@ -67,16 +67,16 @@ namespace FinanceProjector.Web.Controllers
 
                 if (category != null)
                 {
-                    var categoryItem = category.CategoryItems.FirstOrDefault(i => i.Name == match.CategoryItem);
+                    var categoryItemName = match.CategoryItem.Replace("_", " ");
+                    var categoryItem = category.CategoryItems.FirstOrDefault(i => i.Name == categoryItemName);
 
                     if (categoryItem != null)
                     {
                         categoryItem.TransactionMatches.Add(new TransactionMatch { TransactionType = match.TransactionType, Amount = match.Amount, Comments = match.Comments, Name = match.Name, PayeeID = match.PayeeID });
                         _service.SaveUser(user);
-                    }
 
-
-                    return PartialView("TransactionMatchList", categoryItem.TransactionMatches);
+                        return PartialView("TransactionMatchList", categoryItem.TransactionMatches);
+                    }                                       
                 }
             }
 

@@ -16,13 +16,10 @@
             <tr>
                 <td>@item.Name</td>
                 <td>
-                    @if (item.TransactionMatches.Any())
-                    { 
-                        <div id="@item.Name" class="MatchList">
+                        <div id="@item.Name.Replace(" ", "_")" class="MatchList">
                             @Html.Partial("TransactionMatchList", item.TransactionMatches)
                         </div>
-                    }
-                <input type="button" class="AddMatchButton" data-categoryitem="@item.Name" value="Add Match" /></td>
+                <input type="button" class="AddMatchButton" data-categoryitem="@item.Name.Replace(" ", "_")" value="Add Match" /></td>
             </tr>    
         }
     </table>

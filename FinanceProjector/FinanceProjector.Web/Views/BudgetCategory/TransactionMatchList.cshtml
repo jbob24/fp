@@ -1,5 +1,7 @@
 ﻿@model List<FinanceProjector.Model.TransactionMatch>
 
+@if (Model.Any())
+{ 
     <table>
         <thead>
             <tr>
@@ -33,4 +35,4 @@
             }
         </tbody>
     </table>
-
+}
