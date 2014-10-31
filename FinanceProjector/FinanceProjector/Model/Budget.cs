@@ -27,6 +27,4 @@ namespace FinanceProjector.Model
             return budget;
         }
     }
-
-
 }

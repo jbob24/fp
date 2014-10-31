@@ -62,6 +62,7 @@
     <Compile Include="Model\Authentication\SaveUserResponse.cs" />
     <Compile Include="Model\Budget.cs" />
     <Compile Include="Model\BudgetCategory.cs" />
+    <Compile Include="Model\BudgetCategoryItem.cs" />
     <Compile Include="Model\BudgetItem.cs" />
     <Compile Include="Model\RequestBase.cs" />
     <Compile Include="Model\ResponseBase.cs" />
