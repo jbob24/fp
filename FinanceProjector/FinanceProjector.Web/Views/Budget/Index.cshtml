@@ -52,21 +52,21 @@
     { 
         <tr>
             <td colspan="2">@item.CategoryName</td>
-            <td>@item.PlannedCredit</td>
-            <td>@item.PlannedDebit</td>
+            <td></td>
+            <td></td>
             <td>0</td>
             <td>0</td>
-            <td>@item.ActualCredit</td>
-            <td>@item.ActualDebit</td>
+            <td></td>
+            <td></td>
             <td>0</td>
             <td>0</td>
             
-            <td>@item.PlannedCredit</td>
-            <td>@item.PlannedDebit</td>
+            <td></td>
+            <td></td>
             <td>0</td>
             <td>0</td>
-            <td>@item.ActualCredit</td>
-            <td>@item.ActualDebit</td>
+            <td></td>
+            <td></td>
             <td>0</td>
             <td>0</td>
         </tr>
@@ -76,7 +76,7 @@
         <tr>
             <td></td>
             <td>@subItem.CategoryName</td>
-            <td>@subItem.PlannedCredit</td>
+            <td>@Html.TextBox("plannedCredit", subItem.PlannedCredit)</td>
             <td>@subItem.PlannedDebit</td>
             <td>0</td>
             <td>0</td>

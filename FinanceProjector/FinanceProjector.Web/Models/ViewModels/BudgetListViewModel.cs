@@ -47,28 +47,28 @@ namespace FinanceProjector.Web.Models.ViewModels
 
                 budgetItem.SubCategories = new List<BudgetListItem>();
 
-                //foreach (var subCategory in category.SubCategories)
-                //{
-                //    plannedItem = this.Budget.PlannedItems.FirstOrDefault(i => i.CategoryName == subCategory.Name);
-                //    actualItem = this.Budget.ActualItems.FirstOrDefault(i => i.CategoryName == subCategory.Name);
-                //    var budgetSubItem = new BudgetListItem();
+                foreach (var subCategory in category.CategoryItems)
+                {
+                    plannedItem = this.Budget.PlannedItems.FirstOrDefault(i => i.CategoryName == subCategory.Name);
+                    actualItem = this.Budget.ActualItems.FirstOrDefault(i => i.CategoryName == subCategory.Name);
+                    var budgetSubItem = new BudgetListItem();
 
-                //    budgetSubItem.CategoryName = subCategory.Name;
+                    budgetSubItem.CategoryName = subCategory.Name;
 
-                //    if (plannedItem != null)
-                //    {
-                //        budgetSubItem.PlannedCredit = plannedItem.CreditAmount;
-                //        budgetSubItem.PlannedDebit = plannedItem.DebitAmount;
-                //    }
+                    if (plannedItem != null)
+                    {
+                        budgetSubItem.PlannedCredit = plannedItem.CreditAmount;
+                        budgetSubItem.PlannedDebit = plannedItem.DebitAmount;
+                    }
 
-                //    if (actualItem != null)
-                //    {
-                //        budgetSubItem.ActualCredit = actualItem.CreditAmount;
-                //        budgetSubItem.ActualDebit = actualItem.DebitAmount;
-                //    }
+                    if (actualItem != null)
+                    {
+                        budgetSubItem.ActualCredit = actualItem.CreditAmount;
+                        budgetSubItem.ActualDebit = actualItem.DebitAmount;
+                    }
 
-                //    budgetItem.SubCategories.Add(budgetSubItem);
-                //}
+                    budgetItem.SubCategories.Add(budgetSubItem);
+                }
 
                 this.BudgetItems.Add(budgetItem);
             }
