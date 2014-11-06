@@ -7,7 +7,7 @@
 
 <h2>Budget</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered center-aligned">
     <tr>
         <td colspan="10" align="center">@Model.Budget.Month.ToString("MMMM yyyy")</td>
         <td colspan="8" align="center">November 2014</td>
@@ -76,8 +76,8 @@
         <tr>
             <td></td>
             <td>@subItem.CategoryName</td>
-            <td>@Html.TextBox("plannedCredit", subItem.PlannedCredit)</td>
-            <td>@subItem.PlannedDebit</td>
+            <td>@Html.TextBox("plannedCredit", subItem.PlannedCredit, new { @class="form-control" })</td>
+            <td>@Html.TextBox("plannedDebit", subItem.PlannedDebit, new { @class="form-control" })</td>
             <td>0</td>
             <td>0</td>
             <td>@subItem.ActualCredit</td>
@@ -85,8 +85,8 @@
             <td>0</td>
             <td>0</td>
             
-            <td>@subItem.PlannedCredit</td>
-            <td>@subItem.PlannedDebit</td>
+            <td>@Html.TextBox("plannedCredit", subItem.PlannedCredit, new { @class="form-control" })</td>
+            <td>@Html.TextBox("plannedDebit", subItem.PlannedDebit, new { @class="form-control" })</td>
             <td>0</td>
             <td>0</td>
             <td>@subItem.ActualCredit</td>

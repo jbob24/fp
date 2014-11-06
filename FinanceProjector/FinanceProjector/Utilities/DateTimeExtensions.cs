@@ -9,6 +9,16 @@ namespace FinanceProjector.Utilities
 {
     public static class DateTimeExtensions
     {
+        public static DateTime ToFirstOfMonth(this DateTime date)
+        {
+            if (date.Day != 1)
+            {
+                date = date.AddDays(-(date.Day - 1));
+            }
+
+            return date;
+        }
+
         //public static int GetDatePart(this string str, DateInterval interval)
         //{
         //    try

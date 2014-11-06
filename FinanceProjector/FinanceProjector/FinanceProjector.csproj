@@ -54,6 +54,7 @@
     <Compile Include="Interfaces\IAuthenticationService.cs" />
     <Compile Include="Interfaces\IMongoEntity.cs" />
     <Compile Include="Interfaces\ITransactionProvider.cs" />
+    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Authentication\AuthenticationRequest.cs" />
     <Compile Include="Model\Authentication\AuthenticationResponse.cs" />
     <Compile Include="Model\Authentication\RegisterUserRequest.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Model\BudgetCategory.cs" />
     <Compile Include="Model\BudgetCategoryItem.cs" />
     <Compile Include="Model\BudgetItem.cs" />
+    <Compile Include="Model\RecurringTransaction.cs" />
     <Compile Include="Model\RequestBase.cs" />
     <Compile Include="Model\ResponseBase.cs" />
     <Compile Include="Model\Transaction.cs" />

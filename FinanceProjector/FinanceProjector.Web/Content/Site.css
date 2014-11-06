@@ -754,3 +754,7 @@ tr.pager td {
             margin: 0;
         }
 }
+
+.table.center-aligned td {
+    vertical-align: middle;
+}

@@ -54,6 +54,7 @@
     <Compile Include="FinanceProjectTransactionProviderTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="UnitTest1.cs" />
+    <Compile Include="RecurringTransactionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinanceProjector\FinanceProjector.csproj">
